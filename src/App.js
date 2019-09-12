@@ -22,10 +22,11 @@ class App extends React.Component{
             </ul>
           </div>
         </nav>
-
+        
         <Route path='/category' component={Category}/>
         <Route path='/meal' component={Meal}/>
         <Route exact path='/' component={Home}/>
+
       </div>
     
   )}}
