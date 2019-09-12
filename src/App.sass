@@ -1,0 +1,119 @@
+@mixin bob($xoxo)
+    width: $xoxo
+    height: ($xoxo*2)
+p
+    margin: 0
+    font-size: 18px
+.App
+    background: rgb(235,235,235)
+
+.lighted
+    color: rgb(180,180,180)
+
+.navbar
+    border-bottom: 0.3px gray solid
+    li
+        //background: white
+        //padding: 2px 5px
+        //border-radius: 100px
+.category
+    height: 13vh
+    box-shadow: 0 0 10px rgb(180,180,180)
+    color: black
+    font-size: 20px
+    margin: 20px auto
+    width: 88%
+    border-radius: 5px
+    padding-right: 20px
+    img
+        height: 100%
+
+.circles
+    border-radius: 1450px
+.searchbox
+    background: gray//white
+    //transform: translateY(-50%)
+    border-radius: 5px
+    padding: 10px
+    width: 90%
+    input
+        width: 70%
+        background: rgb(235,235,235)
+        outline: none
+        border-radius: 5px
+        margin-right: 20px 
+
+.categorymeals
+    display: grid
+    grid-template-columns: repeat(2,1fr)
+    grid-gap: 40px 15px
+    padding: 5px
+    
+.categorymeal
+    //margin: auto
+    //border: solid black
+    box-shadow: 0 0 5px gray
+    position: relative
+    &:hover
+        opacity: 0.4
+
+
+
+.meal
+    img
+        border-radius: 8px
+        //box-shadow: 0 0 10px rgb(180,180,180)
+    h5
+        margin: 20px 0 10px
+        text-align: center
+.instructions
+    height: 185px
+    overflow: auto 
+.video
+    background: gray
+    max-width: 320px
+    min-width: 100px
+    height: 320px * (9/16)
+    margin: 0 auto 30px
+    position: relative
+    z-index: 0
+    h5
+        z-index: -1
+        margin: 0
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+    iframe
+        z-index: 0
+        height: 100%
+        width: 100%
+@media screen and (min-width: 575px)
+    .searchbox
+        background: white
+        transform: translateY(-50%)
+        padding: 20px
+        width: 70%
+    .categories
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(250px,1fr))
+        grid-row-gap: 40px
+        .category
+            height: auto
+            flex-direction: column
+            position: relative
+            padding: 60px 0 20px
+            width: 70%
+            //width: 200px
+            >*
+            img
+
+                position: absolute
+                bottom: 100%
+                transform: translateY(50%)
+                width: 80%
+                height: auto
+    .categorymeals
+        grid-template-columns: repeat(auto-fit, minmax(250px,1fr))
+    
+        
