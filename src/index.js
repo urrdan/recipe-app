@@ -4,7 +4,7 @@ import App from './App';
 import {Provider} from './context'
 import {BrowserRouter} from 'react-router-dom'
 
-ReactDOM.render(<Provider><BrowserRouter basename='ecom' ><App /></BrowserRouter></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider><BrowserRouter basename='recipe-app' ><App /></BrowserRouter></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

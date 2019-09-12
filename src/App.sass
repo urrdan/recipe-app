@@ -1,9 +1,14 @@
-@mixin bob($xoxo)
-    width: $xoxo
-    height: ($xoxo*2)
+
+$color1: rgb(110,120,110)
+$fonts : 'Courgette','Oswald' , 'Kaushan Script' //nth($fonts, 1)
+
+
 p
-    margin: 0
+    margin: 0 
     font-size: 18px
+h3,h4,h5,h6
+    font-family: nth($fonts, 3)
+
 .App
     background: rgb(235,235,235)
 
@@ -12,14 +17,23 @@ p
 
 .navbar
     border-bottom: 0.3px gray solid
-    li
-        //background: white
-        //padding: 2px 5px
-        //border-radius: 100px
+    #menu
+        li
+            color: white
+            opacity: 1
+            font-family: nth($fonts, 1)
+
+    img
+        height: 45px
+
+.Categories 
+    h3
+        color: $color1
+        font-family: nth($fonts, 2)
+
 .category
     height: 13vh
     box-shadow: 0 0 10px rgb(180,180,180)
-    color: black
     font-size: 20px
     margin: 20px auto
     width: 88%
@@ -27,7 +41,14 @@ p
     padding-right: 20px
     img
         height: 100%
-
+    .category-name
+        color: $color1
+        font-family: nth($fonts, 1)
+        
+        //font-weight: bold
+.cat-des
+    p
+        font-family: nth($fonts, 1)
 .circles
     border-radius: 1450px
 .searchbox
@@ -49,30 +70,39 @@ p
     grid-gap: 40px 15px
     padding: 5px
     
-.categorymeal
-    //margin: auto
-    //border: solid black
-    box-shadow: 0 0 5px gray
-    position: relative
-    &:hover
-        opacity: 0.4
+    .categorymeal
+        //margin: auto
+        //border: solid black
+        box-shadow: 0 0 5px gray
+        position: relative
+        h4
+            color: $color1 
+            font-family: nth($fonts, 1)
+
+        &:hover
+            opacity: 0.4
+
 
 
 
 .meal
+    font-family: nth($fonts, 1)
+
     img
         border-radius: 8px
         //box-shadow: 0 0 10px rgb(180,180,180)
     h5
         margin: 20px 0 10px
         text-align: center
+        font-family: nth($fonts, 3)  
 .instructions
     height: 185px
     overflow: auto 
+    font-family: nth($fonts, 1)
 .video
     background: gray
     max-width: 320px
-    min-width: 100px
+    min-width: 100px 
     height: 320px * (9/16)
     margin: 0 auto 30px
     position: relative
@@ -89,12 +119,23 @@ p
         height: 100%
         width: 100%
 @media screen and (min-width: 575px)
+
+    .navbar
+        #menu
+            align-self: flex-start
+            li
+                opacity: 0.9 
+                &:hover
+                    opacity: 1
+                    font-weight: bold     
+        img
+            height: 90px
     .searchbox
         background: white
-        transform: translateY(-50%)
+        transform: translateY(-50%) 
         padding: 20px
         width: 70%
-    .categories
+    .category-cont
         display: grid
         grid-template-columns: repeat(auto-fit, minmax(250px,1fr))
         grid-row-gap: 40px

@@ -2,6 +2,9 @@ p {
   margin: 0;
   font-size: 18px; }
 
+h3, h4, h5, h6 {
+  font-family: "Kaushan Script"; }
+
 .App {
   background: #ebebeb; }
 
@@ -10,11 +13,20 @@ p {
 
 .navbar {
   border-bottom: 0.3px gray solid; }
+  .navbar #menu li {
+    color: white;
+    opacity: 1;
+    font-family: "Courgette"; }
+  .navbar img {
+    height: 45px; }
+
+.Categories h3 {
+  color: #6e786e;
+  font-family: "Oswald"; }
 
 .category {
   height: 13vh;
   box-shadow: 0 0 10px #b4b4b4;
-  color: black;
   font-size: 20px;
   margin: 20px auto;
   width: 88%;
@@ -22,6 +34,12 @@ p {
   padding-right: 20px; }
   .category img {
     height: 100%; }
+  .category .category-name {
+    color: #6e786e;
+    font-family: "Courgette"; }
+
+.cat-des p {
+  font-family: "Courgette"; }
 
 .circles {
   border-radius: 1450px; }
@@ -43,23 +61,28 @@ p {
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 40px 15px;
   padding: 5px; }
+  .categorymeals .categorymeal {
+    box-shadow: 0 0 5px gray;
+    position: relative; }
+    .categorymeals .categorymeal h4 {
+      color: #6e786e;
+      font-family: "Courgette"; }
+    .categorymeals .categorymeal:hover {
+      opacity: 0.4; }
 
-.categorymeal {
-  box-shadow: 0 0 5px gray;
-  position: relative; }
-  .categorymeal:hover {
-    opacity: 0.4; }
-
-.meal img {
-  border-radius: 8px; }
-
-.meal h5 {
-  margin: 20px 0 10px;
-  text-align: center; }
+.meal {
+  font-family: "Courgette"; }
+  .meal img {
+    border-radius: 8px; }
+  .meal h5 {
+    margin: 20px 0 10px;
+    text-align: center;
+    font-family: "Kaushan Script"; }
 
 .instructions {
   height: 185px;
-  overflow: auto; }
+  overflow: auto;
+  font-family: "Courgette"; }
 
 .video {
   background: gray;
@@ -82,22 +105,31 @@ p {
     width: 100%; }
 
 @media screen and (min-width: 575px) {
+  .navbar #menu {
+    align-self: flex-start; }
+    .navbar #menu li {
+      opacity: 0.9; }
+      .navbar #menu li:hover {
+        opacity: 1;
+        font-weight: bold; }
+  .navbar img {
+    height: 90px; }
   .searchbox {
     background: white;
     transform: translateY(-50%);
     padding: 20px;
     width: 70%; }
-  .categories {
+  .category-cont {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-row-gap: 40px; }
-    .categories .category {
+    .category-cont .category {
       height: auto;
       flex-direction: column;
       position: relative;
       padding: 60px 0 20px;
       width: 70%; }
-      .categories .category img {
+      .category-cont .category img {
         position: absolute;
         bottom: 100%;
         transform: translateY(50%);
