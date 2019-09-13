@@ -9,7 +9,7 @@ class App extends React.Component{
 
   render(){  
     return (
-      <div className="App text-light h-100">
+      <div className="App  h-100">
 
         <nav className='navbar navbar-expand-sm bg-info navbar-dark  justify-content-between p-1 '>
           <NavLink to='/' className='navbar-brand'><img src={require('./logo.png')}/></NavLink>
@@ -23,10 +23,11 @@ class App extends React.Component{
           </div>
         </nav>
 
-        <Route path='/category' component={CategoryMeals}/>
-        <Route path='/meal' component={Meal}/>
-        <Route exact path='/' component={Home}/>
-
+        <div className='cont'>
+          <Route path='/category' component={CategoryMeals}/>
+          <Route path='/meal' component={Meal}/>
+          <Route exact path='/' component={Home}/>
+        </div>
       </div>
     
   )}}

@@ -2,29 +2,45 @@
 $color1: rgb(110,120,110)
 $fonts : 'Courgette','Oswald' , 'Kaushan Script' //nth($fonts, 1)
 
+body, html
+    background: rgb(235,235,235)
+    width: 100%
+    height: 100%
+
 
 p
     margin: 0 
     font-size: 18px
+
 h3,h4,h5,h6
     font-family: nth($fonts, 3)
 
-.App
-    background: rgb(235,235,235)
+.circles
+    border-radius: 1450px
 
 .lighted
     color: rgb(180,180,180)
+.App
+    background: rgb(235,235,235)
+
+
+
+
 
 .navbar
     border-bottom: 0.3px gray solid
     #menu
+
         li
-            color: white
+            color: white 
             opacity: 1
             font-family: nth($fonts, 1)
 
     img
         height: 45px
+
+
+
 
 .Categories 
     h3
@@ -47,10 +63,15 @@ h3,h4,h5,h6
         
         //font-weight: bold
 .cat-des
+    background: white
+    border-radius: 10px
+    padding: 5px
+    box-shadow: 0 0 4px gray
+    margin: 4px
+    max-width: 100%
     p
         font-family: nth($fonts, 1)
-.circles
-    border-radius: 1450px
+
 .searchbox
     background: gray//white
     //transform: translateY(-50%)
@@ -66,23 +87,21 @@ h3,h4,h5,h6
 
 .categorymeals
     display: grid
-    grid-template-columns: repeat(2,1fr)
+    grid-template-columns: repeat(auto-fit,minmax(147px,1fr))
     grid-gap: 40px 15px
     padding: 5px
     
     .categorymeal
-        //margin: auto
-        //border: solid black
-        box-shadow: 0 0 5px gray
-        position: relative
+        img
+            border-radius: 7px
+            box-shadow: 0 0 10px gray    
+            width: 70% 
         h4
             color: $color1 
             font-family: nth($fonts, 1)
 
         &:hover
-            opacity: 0.4
-
-
+            opacity: 0.4 
 
 
 .meal
@@ -90,34 +109,71 @@ h3,h4,h5,h6
 
     img
         border-radius: 8px
+        width: 100%
+        margin: 24px 0
         //box-shadow: 0 0 10px rgb(180,180,180)
     h5
         margin: 20px 0 10px
         text-align: center
         font-family: nth($fonts, 3)  
-.instructions
-    height: 185px
-    overflow: auto 
-    font-family: nth($fonts, 1)
-.video
-    background: gray
-    max-width: 320px
-    min-width: 100px 
-    height: 320px * (9/16)
-    margin: 0 auto 30px
-    position: relative
-    z-index: 0
-    h5
-        z-index: -1
-        margin: 0
-        position: absolute
-        top: 50%
-        left: 50%
-        transform: translate(-50%, -50%)
-    iframe
+    ul
+        text-align: center
+    li
+        display: inline-block
+        span
+            font-size: 11px
+            color: green
+            padding: 2px
+
+
+    .instructions
+        position: relative
+
+        .shower, .hidder-coverer
+            color: blue
+            font-size: 20px
+            font-weight: bold
+
+        .hidden-underlay
+            color: red
+            text-align: center
+
+
+        [class*='cover']
+            position: absolute
+            bottom: 0
+            width: 100%
+
+
+        .hidder-coverer
+            background: #343a40
+
+        .hidden-coverer
+            background: #343a40
+            color: #343a40
+            
+            
+
+        
+    .video
+        background: gray
+        max-width: 320px
+        min-width: 100px 
+        height: 320px * (9/16)
+        margin: 0 auto 30px
+        position: relative
         z-index: 0
-        height: 100%
-        width: 100%
+        h5
+            z-index: -1
+            margin: 0
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+        iframe
+            z-index: 0
+            height: 100%
+            width: 100%
 @media screen and (min-width: 575px)
 
     .navbar
@@ -129,7 +185,13 @@ h3,h4,h5,h6
                     opacity: 1
                     font-weight: bold     
         img
-            height: 90px
+            height: 60px
+
+
+    .cont
+        max-width: 800px
+        margin: auto
+
     .searchbox
         background: white
         transform: translateY(-50%) 
@@ -155,6 +217,39 @@ h3,h4,h5,h6
                 width: 80%
                 height: auto
     .categorymeals
-        grid-template-columns: repeat(auto-fit, minmax(250px,1fr))
+        grid-template-columns: repeat(auto-fit, minmax(200px,1fr)) 
+
+    .meal
+        display: grid
+        grid-template-columns: 1.5fr 2fr  
+        grid-template-rows: auto auto auto auto auto
+        grid-gap: 15px
+        max-width: 900px
+        //text-align: center
+        section
+            &:first-of-type
+                grid-column: 1/3
+                grid-row: 1/2
+
+            &:nth-of-type(2) 
+                //grid-column: 2/3
+                grid-row: 3/4//2/3
+                text-align: center
+                        
+
+            &:nth-of-type(3)
+                grid-column: 2/3
+                grid-row: 2/6 
+        img
+                grid-row: 2/3
+                width: 100%
+                margin-top: 60px
+
+        section
+            &:nth-of-type(4)
+                //grid-column: 1/2
+                grid-row: 5/6
+        .instructions
+            height: auto
     
         

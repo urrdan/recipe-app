@@ -1,3 +1,8 @@
+body, html {
+  background: #ebebeb;
+  width: 100%;
+  height: 100%; }
+
 p {
   margin: 0;
   font-size: 18px; }
@@ -5,11 +10,14 @@ p {
 h3, h4, h5, h6 {
   font-family: "Kaushan Script"; }
 
-.App {
-  background: #ebebeb; }
+.circles {
+  border-radius: 1450px; }
 
 .lighted {
   color: #b4b4b4; }
+
+.App {
+  background: #ebebeb; }
 
 .navbar {
   border-bottom: 0.3px gray solid; }
@@ -38,11 +46,15 @@ h3, h4, h5, h6 {
     color: #6e786e;
     font-family: "Courgette"; }
 
-.cat-des p {
-  font-family: "Courgette"; }
-
-.circles {
-  border-radius: 1450px; }
+.cat-des {
+  background: white;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 0 0 4px gray;
+  margin: 4px;
+  max-width: 100%; }
+  .cat-des p {
+    font-family: "Courgette"; }
 
 .searchbox {
   background: gray;
@@ -58,51 +70,74 @@ h3, h4, h5, h6 {
 
 .categorymeals {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(147px, 1fr));
   grid-gap: 40px 15px;
   padding: 5px; }
-  .categorymeals .categorymeal {
-    box-shadow: 0 0 5px gray;
-    position: relative; }
-    .categorymeals .categorymeal h4 {
-      color: #6e786e;
-      font-family: "Courgette"; }
-    .categorymeals .categorymeal:hover {
-      opacity: 0.4; }
+  .categorymeals .categorymeal img {
+    border-radius: 7px;
+    box-shadow: 0 0 10px gray;
+    width: 70%; }
+  .categorymeals .categorymeal h4 {
+    color: #6e786e;
+    font-family: "Courgette"; }
+  .categorymeals .categorymeal:hover {
+    opacity: 0.4; }
 
 .meal {
   font-family: "Courgette"; }
   .meal img {
-    border-radius: 8px; }
+    border-radius: 8px;
+    width: 100%;
+    margin: 24px 0; }
   .meal h5 {
     margin: 20px 0 10px;
     text-align: center;
     font-family: "Kaushan Script"; }
-
-.instructions {
-  height: 185px;
-  overflow: auto;
-  font-family: "Courgette"; }
-
-.video {
-  background: gray;
-  max-width: 320px;
-  min-width: 100px;
-  height: 180px;
-  margin: 0 auto 30px;
-  position: relative;
-  z-index: 0; }
-  .video h5 {
-    z-index: -1;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); }
-  .video iframe {
-    z-index: 0;
-    height: 100%;
-    width: 100%; }
+  .meal ul {
+    text-align: center; }
+  .meal li {
+    display: inline-block; }
+    .meal li span {
+      font-size: 11px;
+      color: green;
+      padding: 2px; }
+  .meal .instructions {
+    position: relative; }
+    .meal .instructions .shower, .meal .instructions .hidder-coverer {
+      color: blue;
+      font-size: 20px;
+      font-weight: bold; }
+    .meal .instructions .hidden-underlay {
+      color: red;
+      text-align: center; }
+    .meal .instructions [class*='cover'] {
+      position: absolute;
+      bottom: 0;
+      width: 100%; }
+    .meal .instructions .hidder-coverer {
+      background: #343a40; }
+    .meal .instructions .hidden-coverer {
+      background: #343a40;
+      color: #343a40; }
+  .meal .video {
+    background: gray;
+    max-width: 320px;
+    min-width: 100px;
+    height: 180px;
+    margin: 0 auto 30px;
+    position: relative;
+    z-index: 0; }
+    .meal .video h5 {
+      z-index: -1;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+    .meal .video iframe {
+      z-index: 0;
+      height: 100%;
+      width: 100%; }
 
 @media screen and (min-width: 575px) {
   .navbar #menu {
@@ -113,7 +148,10 @@ h3, h4, h5, h6 {
         opacity: 1;
         font-weight: bold; }
   .navbar img {
-    height: 90px; }
+    height: 60px; }
+  .cont {
+    max-width: 800px;
+    margin: auto; }
   .searchbox {
     background: white;
     transform: translateY(-50%);
@@ -136,4 +174,27 @@ h3, h4, h5, h6 {
         width: 80%;
         height: auto; }
   .categorymeals {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); } }
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .meal {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    grid-template-rows: auto auto auto auto auto;
+    grid-gap: 15px;
+    max-width: 900px; }
+    .meal section:first-of-type {
+      grid-column: 1/3;
+      grid-row: 1/2; }
+    .meal section:nth-of-type(2) {
+      grid-row: 3/4;
+      text-align: center; }
+    .meal section:nth-of-type(3) {
+      grid-column: 2/3;
+      grid-row: 2/6; }
+    .meal img {
+      grid-row: 2/3;
+      width: 100%;
+      margin-top: 60px; }
+    .meal section:nth-of-type(4) {
+      grid-row: 5/6; }
+    .meal .instructions {
+      height: auto; } }

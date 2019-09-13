@@ -6,10 +6,19 @@ const Meal = () => {
         <div className='meal-cont bg-dark'>
         <Consumer>
             {val=> {
-                var a=val.state.meal  
-                console.log(a)
+
+                var a=val.state.meal
+
+                let subInstructions1= ''
+                let subInstructions2= ''
+                
+                if(a.strInstructions){
+                    subInstructions1=a.strInstructions.slice(0,300)
+                    subInstructions2=a.strInstructions.slice(300)
+                }  
+                //console.log(a)
                 if(a.strYoutube){var vi=a.strYoutube.replace('watch?v=','embed/')}else{ vi=''}
-                console.log(vi)
+                //console.log(vi)
                 const ingredients=[]
                 let numb = 0
                 while(numb>=0){
@@ -21,17 +30,42 @@ const Meal = () => {
                 }
 
 
-                return <div className='meal p-2'>
-                    <h5 className='text-center '>{a.strMeal}</h5>
-                    <h6 className='lighted text-center'>{a.strCategory}/{a.strArea}</h6>
-                    <img className='w-100 my-4 ' src={a.strMealThumb} alt='wrong'></img>
-                    <h5  className=' ' >Ingredients</h5>
-                    <ul className='px-3 lighted'>{ingredients.map(item=><li className=' d-inline mx-1' key={item}>-{item}</li>)}</ul>
-                    <h5 className=''>Recipe</h5>
-                    <p className='lighted instructions'>{a.strInstructions}</p>
-                    <h5>Watch Video</h5>
-                    <div className='video'><h5>NO VIDEO</h5><iframe src={vi} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> </div>
-                </div>
+                return (
+                    <div className='meal p-2 text-light'>
+                        <section>                   
+                            <h5 className=''>{a.strMeal}</h5>
+                            <h6 className='lighted text-center'>{a.strCategory}/{a.strArea}</h6>
+                        </section>
+
+                        <img className='' src={a.strMealThumb} alt='wrong'></img>
+
+                        <section>
+                            <h5  className=' ' >Ingredients</h5>
+                            <ul className='px-3 lighted'>{ingredients.map(item=><li className='mx-1' key={item}><span >&diams;</span>{item}</li>)}</ul>
+                        </section>
+
+                        <section>
+                            <h5 className=''>Recipe</h5>
+
+                            <div className='lighted instructions d-sm-none'>
+                                <span>{/* a.str */subInstructions1}</span>
+                                <span className='hidden hidden-p collapse '>{subInstructions2}<br/></span>
+                                <span className='shower' data-target='.hidden'  data-toggle='collapse'>...more</span>
+                                <div className='hidden hidden-underlay collapse show'>underlay</div>
+                                <div className='hidder-coverer' ><span data-target='.hidden' data-toggle='collapse'>...hid</span></div>
+                                <div className='hidden hidden-coverer collapse show'>Cover</div>
+                            </div>
+
+                            <p className='lighted instructions d-none d-sm-block'>{a.strInstructions}</p>
+
+                        </section>
+
+                        <section>                   
+                            <h5>Watch Video</h5>
+                            <div className='video'><h5>NO VIDEO</h5><iframe src={vi} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> </div>
+                        </section>
+                    </div>
+                )
             }}
         </Consumer>
         </div>
