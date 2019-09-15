@@ -17,7 +17,7 @@ class App extends React.Component{
           <div className='collapse navbar-collapse justify-content-end' id='menu'>
             <ul className='navbar-nav'>
               <li className='nav-link  '>Categories</li>
-              <li className='nav-link  '>Search</li>
+              <li className='nav-link  '>About</li>
               <li className='nav-link '>All Meals</li>
             </ul>
           </div>
@@ -28,6 +28,10 @@ class App extends React.Component{
           <Route path='/meal' component={Meal}/>
           <Route exact path='/' component={Home}/>
         </div>
+        <footer>
+          <h3>Urrdan</h3>
+          <p> copyright &copy; 2019</p>
+        </footer>
       </div>
     
   )}}

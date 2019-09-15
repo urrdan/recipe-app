@@ -48,8 +48,9 @@ class Provider extends React.Component {
         //.then(a=>console.log(a))
         .then(a=>this.setState({categories:a.categories}))
         //this.category('chicken ')
-        this.Meal('pasta')
+        //this.Meal('pasta')
     }
+    
     componentDidUpdate(){
         console.log('am updated')
 

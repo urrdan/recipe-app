@@ -52,7 +52,7 @@ const Meal = () => {
                                 <span className='hidden hidden-p collapse '>{subInstructions2}<br/></span>
                                 <span className='shower' data-target='.hidden'  data-toggle='collapse'>...more</span>
                                 <div className='hidden hidden-underlay collapse show'>underlay</div>
-                                <div className='hidder-coverer' ><span data-target='.hidden' data-toggle='collapse'>...hid</span></div>
+                                <div className='hidder-coverer' ><span data-target='.hidden' data-toggle='collapse'><i>hid</i></span></div>
                                 <div className='hidden hidden-coverer collapse show'>Cover</div>
                             </div>
 

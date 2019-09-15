@@ -19,6 +19,15 @@ h3, h4, h5, h6 {
 .App {
   background: #ebebeb; }
 
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #646464;
+  height: 100px;
+  color: #b4b4b4; }
+
 .navbar {
   border-bottom: 0.3px gray solid; }
   .navbar #menu li {
@@ -26,7 +35,8 @@ h3, h4, h5, h6 {
     opacity: 1;
     font-family: "Courgette"; }
   .navbar img {
-    height: 45px; }
+    height: 45px;
+    filter: invert(1); }
 
 .Categories h3 {
   color: #6e786e;
@@ -57,7 +67,7 @@ h3, h4, h5, h6 {
     font-family: "Courgette"; }
 
 .searchbox {
-  background: gray;
+  background: #c8c8c8;
   border-radius: 5px;
   padding: 10px;
   width: 90%; }
@@ -104,9 +114,13 @@ h3, h4, h5, h6 {
   .meal .instructions {
     position: relative; }
     .meal .instructions .shower, .meal .instructions .hidder-coverer {
-      color: blue;
+      color: #3232ff;
       font-size: 20px;
       font-weight: bold; }
+      .meal .instructions .shower i, .meal .instructions .hidder-coverer i {
+        border: solid;
+        padding: 0px 10px 0px 5px;
+        border-radius: 50%; }
     .meal .instructions .hidden-underlay {
       color: red;
       text-align: center; }

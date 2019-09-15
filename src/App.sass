@@ -7,7 +7,6 @@ body, html
     width: 100%
     height: 100%
 
-
 p
     margin: 0 
     font-size: 18px
@@ -23,14 +22,19 @@ h3,h4,h5,h6
 .App
     background: rgb(235,235,235)
 
-
-
-
+footer
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    background: rgb(100,100,100)
+    height: 100px
+    color: rgb(180,180,180)
 
 .navbar
     border-bottom: 0.3px gray solid
-    #menu
 
+    #menu
         li
             color: white 
             opacity: 1
@@ -38,9 +42,7 @@ h3,h4,h5,h6
 
     img
         height: 45px
-
-
-
+        filter: invert(1)
 
 .Categories 
     h3
@@ -61,7 +63,6 @@ h3,h4,h5,h6
         color: $color1
         font-family: nth($fonts, 1)
         
-        //font-weight: bold
 .cat-des
     background: white
     border-radius: 10px
@@ -73,7 +74,7 @@ h3,h4,h5,h6
         font-family: nth($fonts, 1)
 
 .searchbox
-    background: gray//white
+    background: rgb(200,200,200)//gray
     //transform: translateY(-50%)
     border-radius: 5px
     padding: 10px
@@ -130,9 +131,13 @@ h3,h4,h5,h6
         position: relative
 
         .shower, .hidder-coverer
-            color: blue
+            color: rgb(50,50,255)
             font-size: 20px
             font-weight: bold
+            i
+                border: solid
+                padding: 0px 10px 0px 5px 
+                border-radius: 50% 
 
         .hidden-underlay
             color: red
@@ -143,8 +148,6 @@ h3,h4,h5,h6
             position: absolute
             bottom: 0
             width: 100%
-
-
         .hidder-coverer
             background: #343a40
 
@@ -236,7 +239,6 @@ h3,h4,h5,h6
                 grid-row: 3/4//2/3
                 text-align: center
                         
-
             &:nth-of-type(3)
                 grid-column: 2/3
                 grid-row: 2/6 
@@ -249,7 +251,6 @@ h3,h4,h5,h6
             &:nth-of-type(4)
                 //grid-column: 1/2
                 grid-row: 5/6
+
         .instructions
             height: auto
-    
-        
