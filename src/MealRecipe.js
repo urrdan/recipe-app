@@ -41,7 +41,7 @@ const Meal = () => {
 
                         <section>
                             <h5  className=' ' >Ingredients</h5>
-                            <ul className='px-3 lighted'>{ingredients.map(item=><li className='mx-1' key={item}><span className='bullet' style={{color: 'white'}}>-</span>{item}</li>)}</ul>
+                            <ul className='px-3 lighted'>{ingredients.map(item=><li className='mx-1' key={item}><span className='bullet'>-</span>{item}</li>)}</ul>
                         </section>
 
                         <section>

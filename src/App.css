@@ -132,6 +132,7 @@ footer {
   .meal-recipe li {
     display: inline-block; }
     .meal-recipe li .bullet {
+      color: white;
       font-size: 11px;
       padding-right: 2px;
       vertical-align: middle; }
