@@ -131,9 +131,8 @@ footer {
     text-align: center; }
   .meal-recipe li {
     display: inline-block; }
-    .meal-recipe li span {
+    .meal-recipe li .bullet {
       font-size: 11px;
-      color: green;
       padding-right: 2px;
       vertical-align: middle; }
   .meal-recipe .instructions {
