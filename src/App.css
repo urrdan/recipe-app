@@ -114,7 +114,8 @@ footer {
 .about {
   font-family: "Courgette"; }
   .about p {
-    color: #6e786e; }
+    color: #6e786e;
+    text-align: center; }
 
 .meal-recipe {
   font-family: "Courgette"; }
