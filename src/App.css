@@ -22,20 +22,6 @@ h3, h4, h5, h6 {
   display: grid;
   grid-template-rows: auto 1fr auto; }
 
-.about {
-  font-family: "Courgette"; }
-  .about p {
-    color: #6e786e; }
-
-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #646464;
-  height: 100px;
-  color: #b4b4b4; }
-
 .navbar {
   border-bottom: 0.3px gray solid; }
   .navbar #menu li {
@@ -45,6 +31,21 @@ footer {
   .navbar img {
     height: 45px;
     filter: invert(1); }
+
+.cont {
+  max-width: 800px;
+  width: 100%;
+  justify-self: center;
+  align-self: center; }
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #646464;
+  height: 100px;
+  color: #b4b4b4; }
 
 .Home {
   text-align: center; }
@@ -107,6 +108,14 @@ footer {
   .categorymeals .categorymeal:hover {
     opacity: 0.4; }
 
+.Allmeals h3 {
+  margin: 40px 0; }
+
+.about {
+  font-family: "Courgette"; }
+  .about p {
+    color: #6e786e; }
+
 .meal-recipe {
   font-family: "Courgette"; }
   .meal-recipe img {
@@ -123,7 +132,7 @@ footer {
     display: inline-block; }
     .meal-recipe li span {
       font-size: 11px;
-      color: #6e786e;
+      color: green;
       padding-right: 2px;
       vertical-align: middle; }
   .meal-recipe .instructions {
@@ -170,9 +179,6 @@ footer {
           font-weight: bold; }
     .navbar img {
       height: 60px; }
-  .cont {
-    max-width: 800px;
-    margin: auto; }
   .searchbox {
     background: white;
     transform: translateY(-50%);

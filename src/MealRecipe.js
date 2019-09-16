@@ -16,7 +16,7 @@ const Meal = () => {
                     subInstructions1=a.strInstructions.slice(0,300)
                     subInstructions2=a.strInstructions.slice(300)
                 }  
-                console.log(a)
+                //console.log(a)
                 if(a.strYoutube){var vi=a.strYoutube.replace('watch?v=','embed/')}else{ vi=''}
                 //console.log(vi)
                 const ingredients=[]

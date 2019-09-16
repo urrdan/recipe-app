@@ -26,7 +26,7 @@ class App extends React.Component{
           </div>
         </nav>
 
-        <div className='cont w-100'>
+        <div className='cont'>
           <Route path='/category' component={CategoryMeals}/>
           <Route path='/meal' component={MealRecipe}/>
           <Route path='/about' component={About}/>

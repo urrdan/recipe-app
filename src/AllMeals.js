@@ -8,8 +8,8 @@ const AllMeals = () => {
     return (
         <Consumer>
                 {val=>
-                    <div>
-                        <h3>All Meals</h3>
+                    <div className='Allmeals'>
+                        <h3 >All Meals</h3>
                         <MealsList mealslist={val.state.allmeals} Meal={val.Meal}/>
                     </div>
                 
