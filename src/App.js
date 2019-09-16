@@ -1,9 +1,12 @@
 import React from 'react';
 import './App.css';
 import CategoryMeals from './CategoryMeals'
-import Meal from './Meal'
+import MealRecipe from './MealRecipe'
 import Home from './Home'
+import About from './About'
+import AllMeals from './AllMeals'
 import {Route, NavLink} from 'react-router-dom'
+
 
 class App extends React.Component{
 
@@ -11,21 +14,23 @@ class App extends React.Component{
     return (
       <div className="App  h-100">
 
-        <nav className='navbar navbar-expand-sm bg-info navbar-dark  justify-content-between p-1 '>
-          <NavLink to='/' className='navbar-brand'><img src={require('./logo.png')}/></NavLink>
+        <nav className='navbar navbar-expand-sm bg-info navbar-dark  justify-content-between  '>
+          <NavLink to='/' className='navbar-brand'><img src={require('./logo.png')} alt=''/></NavLink>
           <button className='navbar-toggler' data-toggle='collapse' data-target='#menu'><span className='navbar-toggler-icon'></span></button>
           <div className='collapse navbar-collapse justify-content-end' id='menu'>
             <ul className='navbar-nav'>
-              <li className='nav-link  '>Categories</li>
-              <li className='nav-link  '>About</li>
-              <li className='nav-link '>All Meals</li>
+            <NavLink to='/'><li className='nav-link  '>Home</li></NavLink>
+            <NavLink to='allmeals'><li className='nav-link '>All Meals</li></NavLink>
+            <NavLink to='about'><li className='nav-link  '>About</li></NavLink>
             </ul>
           </div>
         </nav>
 
-        <div className='cont'>
+        <div className='cont w-100'>
           <Route path='/category' component={CategoryMeals}/>
-          <Route path='/meal' component={Meal}/>
+          <Route path='/meal' component={MealRecipe}/>
+          <Route path='/about' component={About}/>
+          <Route path='/allmeals' component={AllMeals}/>
           <Route exact path='/' component={Home}/>
         </div>
         <footer>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Consumer} from './context'
-import {NavLink} from 'react-router-dom'
+import MealsList from './MealsList'
 
 const CategoryMeals = () => {
     return ( 
@@ -13,7 +13,8 @@ const CategoryMeals = () => {
                             <h3>{val.state.catDescription.strCategory}</h3>
                             <p className=''>{val.state.catDescription.strCategoryDescription}</p>
                         </div>
-                        <div className='categorymeals'>
+                        <MealsList mealslist={val.state.category} Meal={val.Meal}/>
+                        {/* <div className='categorymeals'>
                             {
                                 val.state.category.map(item=>
                                     <div className='categorymeal text-center' key={item.idMeal}  onClick={val.Meal.bind(this,item.strMeal)}>
@@ -22,7 +23,7 @@ const CategoryMeals = () => {
                                     </div>                        
                                 )
                             }
-                        </div>
+                        </div> */}
                     </div>
                     )
                 

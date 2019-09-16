@@ -2,7 +2,7 @@
 $color1: rgb(110,120,110)
 $fonts : 'Courgette','Oswald' , 'Kaushan Script' //nth($fonts, 1)
 
-body, html
+body, html,#root
     background: rgb(235,235,235)
     width: 100%
     height: 100%
@@ -13,6 +13,7 @@ p
 
 h3,h4,h5,h6
     font-family: nth($fonts, 3)
+    text-align: center
 
 .circles
     border-radius: 1450px
@@ -21,7 +22,12 @@ h3,h4,h5,h6
     color: rgb(180,180,180)
 .App
     background: rgb(235,235,235)
-
+    display: grid
+    grid-template-rows: auto 1fr auto
+.about
+    font-family: nth($fonts, 1) 
+    p
+        color: $color1
 footer
     display: flex
     flex-direction: column
@@ -41,10 +47,15 @@ footer
             font-family: nth($fonts, 1)
 
     img
-        height: 45px
+        height: 45px 
         filter: invert(1)
 
-.Categories 
+.Home
+    text-align: center
+    .intro-line
+        color: $color1
+        margin-bottom: 50px
+        font-family: nth($fonts, 1)
     h3
         color: $color1
         font-family: nth($fonts, 2)
@@ -105,7 +116,7 @@ footer
             opacity: 0.4 
 
 
-.meal
+.meal-recipe
     font-family: nth($fonts, 1)
 
     img
@@ -123,39 +134,23 @@ footer
         display: inline-block
         span
             font-size: 11px
-            color: green
-            padding: 2px
+            color: $color1
+            padding-right: 2px
+            vertical-align: middle 
 
 
     .instructions
         position: relative
-
-        .shower, .hidder-coverer
+        .shower
             color: rgb(50,50,255)
             font-size: 20px
             font-weight: bold
-            i
-                border: solid
-                padding: 0px 10px 0px 5px 
-                border-radius: 50% 
-
-        .hidden-underlay
-            color: red
-            text-align: center
-
-
-        [class*='cover']
+        .hidden-coverer
             position: absolute
             bottom: 0
             width: 100%
-        .hidder-coverer
-            background: #343a40
-
-        .hidden-coverer
             background: #343a40
             color: #343a40
-            
-            
 
         
     .video
@@ -180,6 +175,7 @@ footer
 @media screen and (min-width: 575px)
 
     .navbar
+        padding: 0 50px 0px 10px
         #menu
             align-self: flex-start
             li
@@ -200,7 +196,7 @@ footer
         transform: translateY(-50%) 
         padding: 20px
         width: 70%
-    .category-cont
+    .categories
         display: grid
         grid-template-columns: repeat(auto-fit, minmax(250px,1fr))
         grid-row-gap: 40px
@@ -222,7 +218,7 @@ footer
     .categorymeals
         grid-template-columns: repeat(auto-fit, minmax(200px,1fr)) 
 
-    .meal
+    .meal-recipe
         display: grid
         grid-template-columns: 1.5fr 2fr  
         grid-template-rows: auto auto auto auto auto
@@ -250,7 +246,7 @@ footer
         section
             &:nth-of-type(4)
                 //grid-column: 1/2
-                grid-row: 5/6
+                grid-row: 4/5 
 
         .instructions
             height: auto

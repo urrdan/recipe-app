@@ -3,7 +3,7 @@ import {Consumer} from './context'
 
 const Meal = () => {
     return ( 
-        <div className='meal-cont bg-dark'>
+        <div className='meal-recipe-cont bg-dark'>
         <Consumer>
             {val=> {
 
@@ -16,28 +16,28 @@ const Meal = () => {
                     subInstructions1=a.strInstructions.slice(0,300)
                     subInstructions2=a.strInstructions.slice(300)
                 }  
-                //console.log(a)
+                console.log(a)
                 if(a.strYoutube){var vi=a.strYoutube.replace('watch?v=','embed/')}else{ vi=''}
                 //console.log(vi)
                 const ingredients=[]
                 let numb = 0
                 while(numb>=0){
                     numb++
-                    if(eval('a.strIngredient'+numb)){
-                        if(ingredients.includes(eval('a.strIngredient'+numb))){}else{ingredients.push( eval('a.strIngredient'+numb) )}
+                    if(a['strIngredient'+numb]){
+                        if(ingredients.includes(a['strIngredient'+numb])){}else{ingredients.push( a['strIngredient'+numb] )}
                         
                     }else{numb= -1}
                 }
 
 
                 return (
-                    <div className='meal p-2 text-light'>
+                    <div className='meal-recipe p-2 text-light'>
                         <section>                   
                             <h5 className=''>{a.strMeal}</h5>
                             <h6 className='lighted text-center'>{a.strCategory}/{a.strArea}</h6>
                         </section>
 
-                        <img className='' src={a.strMealThumb} alt='wrong'></img>
+                        <img className='' src={a.strMealThumb} alt='.'></img>
 
                         <section>
                             <h5  className=' ' >Ingredients</h5>
@@ -51,9 +51,7 @@ const Meal = () => {
                                 <span>{/* a.str */subInstructions1}</span>
                                 <span className='hidden hidden-p collapse '>{subInstructions2}<br/></span>
                                 <span className='shower' data-target='.hidden'  data-toggle='collapse'>...more</span>
-                                <div className='hidden hidden-underlay collapse show'>underlay</div>
-                                <div className='hidder-coverer' ><span data-target='.hidden' data-toggle='collapse'><i>hid</i></span></div>
-                                <div className='hidden hidden-coverer collapse show'>Cover</div>
+                                <div className='hidden hidden-coverer collapse'>Cover</div>
                             </div>
 
                             <p className='lighted instructions d-none d-sm-block'>{a.strInstructions}</p>
@@ -62,7 +60,7 @@ const Meal = () => {
 
                         <section>                   
                             <h5>Watch Video</h5>
-                            <div className='video'><h5>NO VIDEO</h5><iframe src={vi} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> </div>
+                            <div className='video'><h5>NO VIDEO</h5><iframe src={vi} title='wewe'frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> </div>
                         </section>
                     </div>
                 )

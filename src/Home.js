@@ -6,14 +6,14 @@ const Home = () => {
     return ( 
         <Consumer>
             {val=>
-                <div className='Categories  text-center '>
-                            {/* beef and mustard pie */}
+                <div className='Home'>
                     <div className='searchbox d-flex justify-content-center align-items-center  mx-auto my-sm-0 my-4 ' >
                         <input className='border-0 px-3' type='text' placeholder='Search Meal' onChange={function(e){val.search(e)}}/>
                         <NavLink to='/meal'><button className='btn btn-sm btn-primary' onClick={val.Meal.bind(this,val.state.search)}>Go &rarr; </button></NavLink>
                     </div>
+                    <p className='intro-line'>"Master the secret to making meals all around the globe in few simple steps" </p>
                     <h3 className='mb-5'>Categories</h3>
-                    <div className='category-cont'>{
+                    <div className='categories'>{
                         val.state.categories.map(item=>
                             <NavLink to='/category' key={item.idCategory}>
                                 <div className='category d-flex  justify-content-between align-items-center bg-light '  onClick={val.category.bind(this,item.strCategory,item)}>

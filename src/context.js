@@ -9,6 +9,7 @@ class Provider extends React.Component {
           categories:[],
           catDescription:[],
           category: [],
+          allmeals:[],
           meal: {},
           search: ''
 
@@ -43,10 +44,32 @@ class Provider extends React.Component {
 
     componentDidMount(){
         console.log('am mounted');
+        const liste=[]
         fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
         .then(a=>a.json())
+        .then(a=>{this.setState({categories:a.categories}); return a.categories.map((x)=> x.strCategory)})
         //.then(a=>console.log(a))
-        .then(a=>this.setState({categories:a.categories}))
+        .then(a=>{
+            a.forEach(z=>
+                fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${z}`)
+                .then(a=>a.json())
+                .then(a=>a.meals.forEach(x=>liste.push(x)))
+            )
+            return liste
+        })
+        .then(a=>this.setState({allmeals: a}))
+
+        /* const almeals=[]
+        fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`)
+        .then(a=>a.json())
+        .then(a=>a.categories.map((x)=> x.strCategory))
+        .then(a=>{
+            a.forEach(z=>
+                fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${z}`)
+                .then(a=>a.json())
+                .then(a=>a.meals.forEach(x=>almeals.push(x)))
+            )
+        }) */
         //this.category('chicken ')
         //this.Meal('pasta')
     }
