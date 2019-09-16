@@ -25,7 +25,7 @@ h3, h4, h5, h6 {
 .navbar {
   border-bottom: 0.3px gray solid; }
   .navbar #menu li {
-    color: white;
+    color: yellow;
     opacity: 1;
     font-family: "Courgette"; }
   .navbar img {
