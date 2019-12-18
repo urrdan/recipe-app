@@ -34,7 +34,7 @@ class App extends React.Component{
           <Route exact path='/' component={Home}/>
         </div>
         <footer>
-          <h3>Urrdan</h3>
+          <h3>Mohamed Abdulle</h3>
           <p> copyright &copy; 2019</p>
         </footer>
       </div>
