@@ -1,9 +1,9 @@
 import React from 'react';
-import {Consumer} from './context'
+import {Consumer} from '../context'
 
 const Meal = () => {
     return ( 
-        <div className='meal-recipe-cont bg-dark'>
+        <div className='Meal-recipe-cont bg-dark'>
         <Consumer>
             {val=> {
 
@@ -16,9 +16,7 @@ const Meal = () => {
                     subInstructions1=a.strInstructions.slice(0,300)
                     subInstructions2=a.strInstructions.slice(300)
                 }  
-                //console.log(a)
                 if(a.strYoutube){var vi=a.strYoutube.replace('watch?v=','embed/')}else{ vi=''}
-                //console.log(vi)
                 const ingredients=[]
                 let numb = 0
                 while(numb>=0){
@@ -31,7 +29,7 @@ const Meal = () => {
 
 
                 return (
-                    <div className='meal-recipe p-2 text-light'>
+                    <div className='Meal-recipe p-2 text-light'>
                         <section>                   
                             <h5 className=''>{a.strMeal}</h5>
                             <h6 className='lighted text-center'>{a.strCategory}/{a.strArea}</h6>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Consumer} from './context'
+import {Consumer} from '../context'
 import {NavLink} from 'react-router-dom'
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
                         <input className='border-0 px-3' type='text' placeholder='Search Meal' onChange={function(e){val.search(e)}}/>
                         <NavLink to='/meal'><button className='btn btn-sm btn-primary' onClick={val.Meal.bind(this,val.state.search)}>Go &rarr; </button></NavLink>
                     </div>
-                    <p className='intro-line'>"Master the secret to making meals all around the globe in few simple steps" </p>
+                    <p className='intro-line'>"Master the secret to making dishes all around the globe in few simple steps" </p>
                     <h3 className='mb-5'>Categories</h3>
                     <div className='categories'>{
                         val.state.categories.map(item=>

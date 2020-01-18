@@ -66,7 +66,6 @@ class Provider extends React.Component {
     
     componentDidUpdate(){
         console.log('am updated')
-
     }
     
     render() { 
