@@ -1,81 +1,81 @@
-import React from 'react';
+import React, { useEffect, useReducer } from "react";
 
-const mycotx= React.createContext()
+const Mycotx = React.createContext();
 
-class Provider extends React.Component {
-    constructor(){
-        super()
-        this.state={
-          categories:[],
-          catDescription:[],
-          category: [],
-          allmeals:[],
-          meal: {},
-          search: ''
+const initialState = {
+  categories: [],
+  catDescription: [],
+  category: [],
+  allMeals: [],
+  meal: {},
+};
 
-        }
-        this.category=this.category.bind(this)
-        this.Meal=this.Meal.bind(this)
-        this.search=this.search.bind(this)
-    }
-    
-    category(x, y){
-        this.setState({catDescription: y})
-        fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${x}`)
-        .then(a=> a.json())
-        //.then(a=>console.log(a))
-        .then(a=>this.setState({category:a.meals}))
+const reducerFunction = (state, action) => {
+  switch (action && action.type) {
+    case action.type:
+      return { ...state, [action.type]: action.value };
+    default:
+      return { ...state };
+  }
+};
 
-    }
-    
-    Meal(meal){
-        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`)
-        .then(a=>a.json())
-        .then(a=>this.setState({meal:a.meals[0]}))
-        //.then(a=>console.log(a.meals[0]))
-    }
+const mapDispatch = (dispatch, apiCaller) => ({
+  category: (category) => {
+    const categoryUrl = `filter.php?c=${category}`;
+    apiCaller(categoryUrl).then((data) => {
+      dispatch({ type: "category", value: data.meals });
+    });
+  },
+  meal: (meal) => {
+    const mealUrl = `search.php?s=${meal}`;
+    apiCaller(mealUrl).then((data) => {
+      dispatch({ type: "meal", value: data.meals[0] });
+    });
+  },
+  search: (event) => {
+    const searchUrl = `search.php?s=${event.target.value}`;
+    apiCaller(searchUrl).then((data) => {
+      const searchedMeal = data.meals && data.meals[0] ? data.meals[0] : {};
+      dispatch({ type: "meal", value: searchedMeal });
+    });
+  },
+});
 
+const AppProvider = (props) => {
+  const [data, dispatch] = useReducer(reducerFunction, initialState);
 
-    search(e){
-        e.persist()
-        this.setState({search: e.target.value})
-    }
+  const apiCaller = (url) => {
+    const baseUrl = "https://www.themealdb.com/api/json/v1/1/";
+    const fullUrl = baseUrl + url;
+    return fetch(fullUrl).then((data) => data.json());
+  };
 
+  const actionHandler = mapDispatch(dispatch, apiCaller);
 
-    componentDidMount(){
-        console.log('am mounted');
-        const liste=[]
-        fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
-        .then(a=>a.json())
-        .then(a=>{this.setState({categories:a.categories}); return a.categories.map((x)=> x.strCategory)})
-        //.then(a=>console.log(a))
-        .then(a=>{
-            a.forEach(z=>
-                fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${z}`)
-                .then(a=>a.json())
-                .then(a=>a.meals.forEach(x=>liste.push(x)))
-            )
-            return liste
-        })
-        .then(a=>this.setState({allmeals: a}))
-
-        
-        //this.category('chicken ')
-        //this.Meal('pasta')
-    }
-    
-    componentDidUpdate(){
-        console.log('am updated')
-    }
-    
-    render() { 
-        return ( 
-            <mycotx.Provider value={ {state:this.state, category:this.category,  Meal:this.Meal, search:this.search} }>
-                {this.props.children}
-            </mycotx.Provider>
+  useEffect(() => {
+    const allMealList = [];
+    fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
+      .then((a) => a.json())
+      .then((a) => {
+        dispatch({ type: "categories", value: a.categories });
+        return a.categories.map((x) => x.strCategory);
+      })
+      .then((a) => {
+        a.forEach((z) =>
+          fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${z}`)
+            .then((a) => a.json())
+            .then((a) => a.meals.forEach((x) => allMealList.push(x)))
         );
-    }
-}
- 
-const Consumer=mycotx.Consumer
-export {Provider , Consumer} ;
+        return allMealList;
+      })
+      .then((a) => dispatch({ type: "allMeals", value: a }));
+  }, []);
+
+  return (
+    <Mycotx.Provider value={{ state: data, actionHandler }}>
+      {props.children}
+    </Mycotx.Provider>
+  );
+};
+
+export { AppProvider, Mycotx };

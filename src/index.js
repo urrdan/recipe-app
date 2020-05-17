@@ -1,9 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import {Provider} from './context'
-import {BrowserRouter} from 'react-router-dom'
-import ScrollToTop from './ScrollToTop'
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./app/App";
+import { AppProvider } from "./context";
+import { BrowserRouter } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
 
-ReactDOM.render(<Provider><BrowserRouter basename='recipe-app' ><ScrollToTop><App /></ScrollToTop></BrowserRouter></Provider>, document.getElementById('root'));
-
+ReactDOM.render(
+  <BrowserRouter basename="recipe-app">
+    <ScrollToTop>
+      <AppProvider>
+        <App />
+      </AppProvider>
+    </ScrollToTop>
+  </BrowserRouter>,
+  document.getElementById("root")
+);
