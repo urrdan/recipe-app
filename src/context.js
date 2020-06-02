@@ -4,7 +4,8 @@ const Mycotx = React.createContext();
 
 const initialState = {
   categories: [],
-  catDescription: [],
+  currentCategory: [],
+  currentCategoryMeals: [],
   category: [],
   allMeals: [],
   meal: {},
@@ -20,10 +21,11 @@ const reducerFunction = (state, action) => {
 };
 
 const mapDispatch = (dispatch, apiCaller) => ({
-  category: (category) => {
-    const categoryUrl = `filter.php?c=${category}`;
+  category: (currentCategory) => {
+    const categoryUrl = `filter.php?c=${currentCategory}`;
     apiCaller(categoryUrl).then((data) => {
-      dispatch({ type: "category", value: data.meals });
+      dispatch({ type: "currentCategoryMeals", value: data.meals });
+      dispatch({ type: "currentCategory", value: currentCategory });
     });
   },
   meal: (meal) => {

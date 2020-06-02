@@ -1,0 +1,21 @@
+@import ../../../utilities/utilities
+.Categorymeals 
+    display: grid
+    grid-template-columns: repeat(auto-fit,minmax(147px,1fr))
+    grid-gap: 40px 15px
+    padding: 5px
+    .categorymeal
+        img
+            border-radius: 7px
+            box-shadow: 0 0 10px gray    
+            width: 70% 
+        h4
+            color: $color1 
+            font-family: nth($fonts, 1)
+        &:hover
+            opacity: 0.4
+
+@media screen and (min-width: $bigScreen)
+    .Categorymeals
+        grid-template-columns: repeat(auto-fit, minmax(200px,1fr))
+

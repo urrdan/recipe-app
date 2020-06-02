@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import { Mycotx } from "../context";
+import { Mycotx } from "../../context";
+import "./meal-recipe.sass";
 
 const Meal = () => {
   const contextData = useContext(Mycotx);

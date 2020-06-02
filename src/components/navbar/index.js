@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "./navbar.sass";
 
 const Navbar = () => {
   return (
@@ -17,13 +18,13 @@ const Navbar = () => {
       <div className="collapse navbar-collapse justify-content-end" id="menu">
         <ul className="navbar-nav">
           <NavLink to="/">
-            <li className="nav-link  ">Home</li>
+            <li className="nav-link  ">HOME</li>
           </NavLink>
           <NavLink to="allmeals">
-            <li className="nav-link ">All Meals</li>
+            <li className="nav-link ">ALL MEALS</li>
           </NavLink>
           <NavLink to="about">
-            <li className="nav-link  ">About</li>
+            <li className="nav-link  ">ABOUT</li>
           </NavLink>
         </ul>
       </div>

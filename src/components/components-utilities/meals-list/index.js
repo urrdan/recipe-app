@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "./meals-list.sass";
 
 const MealsList = (prop) => {
   return (

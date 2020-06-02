@@ -1,0 +1,26 @@
+@import ../../utilities/utilities
+.navbar
+    border-bottom: 0.3px gray solid
+    #menu
+        li
+            color: white
+            opacity: 1
+            font-family: nth($fonts, 1)
+            font-size: 17px
+    img
+        height: 45px 
+        filter: invert(1)
+
+
+@media screen and (min-width: $bigScreen)
+    .navbar
+        padding: 0 50px 0px 10px
+        #menu
+            align-self: flex-start
+            li
+                opacity: 0.9 
+                &:hover
+                    opacity: 1
+                    font-weight: bold     
+        img
+            height: 60px

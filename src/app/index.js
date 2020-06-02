@@ -1,12 +1,13 @@
 import React from "react";
-import "./main.css";
-import CategoryMeals from "../components/CategoryMeals";
-import MealRecipe from "../components/MealRecipe";
-import Home from "../components/Home";
-import About from "../components/About";
-import AllMeals from "../components/AllMeals";
+import "./app.sass";
+import CategoryMeals from "../components/category-meals";
+import MealRecipe from "../components/meal-recipe";
+import Home from "../components/home";
+import About from "../components/about";
+import AllMeals from "../components/all-meals";
 import { Route } from "react-router-dom";
 import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 
 const App = () => {
   return (
@@ -19,10 +20,7 @@ const App = () => {
         <Route path="/allmeals" component={AllMeals} />
         <Route exact path="/" component={Home} />
       </div>
-      <footer>
-        <h3>Mohamed Abdulle</h3>
-        <p> copyright &copy; 2019</p>
-      </footer>
+      <Footer />
     </div>
   );
 };
