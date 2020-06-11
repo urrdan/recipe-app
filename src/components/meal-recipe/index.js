@@ -60,7 +60,7 @@ const Meal = () => {
           <h5 className="">Recipe</h5>
 
           <div className="lighted instructions d-sm-none">
-            <span>{/* a.str */ subInstructions1}</span>
+            <span>{subInstructions1}</span>
             <span className="hidden hidden-p collapse ">
               {subInstructions2}
               <br />

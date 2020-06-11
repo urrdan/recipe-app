@@ -4,7 +4,7 @@ import "./navbar.sass";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-sm bg-info navbar-dark  justify-content-between  ">
+    <nav className="navbar navbar-expand-sm  navbar-dark  justify-content-between  ">
       <NavLink to="/" className="navbar-brand">
         <img src={require("./logo.png")} alt="" />
       </NavLink>

@@ -9,6 +9,7 @@ const initialState = {
   category: [],
   allMeals: [],
   meal: {},
+  searchedResult: [],
 };
 
 const reducerFunction = (state, action) => {
@@ -34,12 +35,17 @@ const mapDispatch = (dispatch, apiCaller) => ({
       dispatch({ type: "meal", value: data.meals[0] });
     });
   },
-  search: (event) => {
-    const searchUrl = `search.php?s=${event.target.value}`;
-    apiCaller(searchUrl).then((data) => {
-      const searchedMeal = data.meals && data.meals[0] ? data.meals[0] : {};
-      dispatch({ type: "meal", value: searchedMeal });
+  search: (event, mealsList) => {
+    const inputValue = event//.target.value;
+    const result = mealsList.filter((item) => {
+      if (
+        item.strMeal.toLowerCase().includes(inputValue.toLowerCase()) &&
+        inputValue !== ""
+      ) {
+        return item;
+      }
     });
+    dispatch({ type: "searchedResult", value: result });
   },
 });
 
@@ -57,20 +63,20 @@ const AppProvider = (props) => {
   useEffect(() => {
     const allMealList = [];
     fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
-      .then((a) => a.json())
-      .then((a) => {
-        dispatch({ type: "categories", value: a.categories });
-        return a.categories.map((x) => x.strCategory);
+      .then((result) => result.json())
+      .then((result) => {
+        dispatch({ type: "categories", value: result.categories });
+        return result.categories.map((x) => x.strCategory);
       })
-      .then((a) => {
-        a.forEach((z) =>
+      .then((result) => {
+        result.forEach((z) =>
           fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${z}`)
-            .then((a) => a.json())
-            .then((a) => a.meals.forEach((x) => allMealList.push(x)))
+            .then((result) => result.json())
+            .then((result) => result.meals.forEach((x) => allMealList.push(x)))
         );
         return allMealList;
       })
-      .then((a) => dispatch({ type: "allMeals", value: a }));
+      .then((result) => dispatch({ type: "allMeals", value: result }));
   }, []);
 
   return (

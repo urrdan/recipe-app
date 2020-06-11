@@ -3,14 +3,14 @@ import React, { useContext } from "react";
 
 import { Mycotx } from "../../context";
 import "./home.sass";
-import SearchBox from "./SearchBox";
+import SearchBox from "../searchbox";
 import Categories from "./Categories";
 
 const Home = () => {
   const contextData = useContext(Mycotx);
   return (
     <div className="Home">
-      <SearchBox searchOnChange={contextData.actionHandler.search} />
+      <SearchBox />
       <p className="intro-line">
         "Master the secret to making dishes all around the globe in few simple
         steps"
