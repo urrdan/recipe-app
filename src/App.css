@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+:root {
+  height: 100%;
+  font-family: Courgette;
+  color: /*#6e786e*/ teal;
+}
+body,
+#root {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p {
+  font-size: 18px;
+}
+@theme {
+  /*directive*/
+  --color-light-gray: #ebebeb;
+  --color-dark-gray: #b4b4b4;
+  --font-secondary: Kaushan Script;
+  --font-third: Inter;
+}
+
+@layer base {
+  button {
+    @apply bg-orange-300 text-orange-800 border-sky-400;
+  }
+  image {
+    border: solid;
+  }
+  h2 {
+    @apply text-4xl my-4;
+  }
+  h4 {
+    @apply text-xl font-secondary text-white my-4;
+  }
+}
+
+@utility category-card {
+  @apply relative flex items-center m-5 rounded-sm p-2 hover:opacity-75 bg-white shadow-[0_0_10px_var(--color-dark-gray)];
+}
+@utility category-card_big-screen {
+  @apply flex-col w-[70%] hover:w-[68%]  mx-auto  h-27;
+}
+@utility category-card_small-screen {
+  @apply flex-row justify-between h-[13vh] mt-0;
+}
+@utility category-meals-card {
+  @apply text-center m-5  p-2 hover:opacity-75 mx-auto hover:w-[98%];
+}
+
+@utility search-result {
+  @apply bg-white absolute max-h-50 w-full text-left overflow-auto shadow-[0_0_10px_var(--color-dark-gray)]  m-0  p-1;
+}
