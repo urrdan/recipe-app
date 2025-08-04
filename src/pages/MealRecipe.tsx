@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getMealRecipe } from "../apis/endpoints";
+import { useParams } from "react-router-dom";
 type mealDetails = {
   strMeal: string;
   strCategory: string;
@@ -11,11 +12,11 @@ type mealDetails = {
   //ingredients: string[];
 };
 const MealRecipe = () => {
+  const { mealId } = useParams();
   const [data, setData] = useState<mealDetails>();
   const [ingredients, setIngredients] = useState<string[]>([]);
-  const id = new URLSearchParams(window.location.search).get("id") || "";
   const getData = async () => {
-    const _data: mealDetails = await getMealRecipe(id);
+    const _data: mealDetails = await getMealRecipe(mealId);
     const _ingredients: string[] = [];
     let ingredientsFound = Object.keys(_data).filter((ingr) =>
       ingr.includes("strIngredient")

@@ -6,9 +6,6 @@ interface componentProp {
 }
 
 const Home = ({ categories }: componentProp) => {
-  const categoryOnClick = (i: string) => {
-    console.log(i);
-  };
   return (
     <>
       <SearchComp />
@@ -19,11 +16,8 @@ const Home = ({ categories }: componentProp) => {
       <h2 className="my-10  font-secondary">Categories</h2>
       <div className="grid  sm:gap-y-12  sm:grid-cols-3 ">
         {categories.map((category) => (
-          <NavLink to={`/categorymeals?category=${category.strCategory}`}>
-            <div
-              className="category-card sm:category-card_big-screen max-sm:category-card_small-screen"
-              onClick={() => categoryOnClick(category.strCategory)}
-            >
+          <NavLink to={`/categorymeals/${category.strCategory}`}>
+            <div className="category-card sm:category-card_big-screen max-sm:category-card_small-screen">
               <img
                 className="sm:w-[80%] max-sm:h-[100%] sm:absolute sm:bottom-[50%]"
                 src={category.strCategoryThumb}

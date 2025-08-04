@@ -25,7 +25,7 @@ const getCategoriesMeals = async (category: string = "beef") => {
   return data.meals;
 };
 
-const getMealRecipe = async (id: string) => {
+const getMealRecipe = async (id = "") => {
   const data: any = await getItems(`/lookup.php?i=${id}`);
 
   return (data?.meals || [])[0];

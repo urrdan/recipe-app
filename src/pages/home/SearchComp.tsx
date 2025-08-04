@@ -47,7 +47,7 @@ const SearchComp = () => {
           <ul className="search-result">
             {searchResult.map((item) => (
               <li key={item.idMeal} className="py-1.5 hover:opacity-50">
-                <NavLink to={`/meal?id=${item.idMeal}`}>{item.strMeal}</NavLink>
+                <NavLink to={`/meal/${item.idMeal}`}>{item.strMeal}</NavLink>
               </li>
             ))}
           </ul>

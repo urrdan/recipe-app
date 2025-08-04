@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { getCategories } from "./apis/endpoints";
 import Home from "./pages/home/Home";
 import type { category } from "./apis/types";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import About from "./pages/about/About";
 import Topbar from "./pages/Topbar";
 import CategoryMeals from "./pages/CategoryMeals";
@@ -22,20 +22,23 @@ function App({ categoriesList: [] = [] }) {
   return (
     <>
       <div className="bg-teal-50 h-full overflow-auto flex flex-col">
-        <BrowserRouter>
+        <HashRouter>
           <Topbar />
           <div className="max-w-210 w-full text-center m-auto my-0 grow-1">
             <Routes>
               <Route path="/" element={<Home categories={data} />} />
-              <Route path="/categoryMeals" element={<CategoryMeals />} />
-              <Route path="/meal" element={<MealRecipe />} />
+              <Route
+                path="/categoryMeals/:categoryId"
+                element={<CategoryMeals />}
+              />
+              <Route path="/meal/:mealId" element={<MealRecipe />} />
               <Route path="/about" element={<About />} />
             </Routes>
           </div>
           <footer className="bg-teal-800 p-4  text-center">
             <p className="text-white">Mohamed Abdulle &copy;2019</p>
           </footer>
-        </BrowserRouter>
+        </HashRouter>
       </div>
     </>
   );
