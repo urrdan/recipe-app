@@ -3,7 +3,7 @@
 :root {
   height: 100%;
   font-family: Courgette;
-  color: /*#6e786e*/ teal;
+  color: teal;
 }
 body,
 #root {
@@ -51,6 +51,11 @@ p {
 }
 @utility category-meals-card {
   @apply text-center m-5  p-2 hover:opacity-75 mx-auto hover:w-[98%];
+}
+
+@utility search-box {
+  @apply bg-white w-[90%] p-5 m-auto rounded shadow-[0_0_6px_var(--color-dark-gray)] 
+  sm:w-[50%] lg:w-[70%] sm:translate-y-[-50%] sm:bg-white max-sm:my-4;
 }
 
 @utility search-result {
