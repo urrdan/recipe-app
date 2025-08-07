@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { searchMeal } from "../../apis/endpoints";
 import type { categoryMeal } from "../../apis/types";
 import { NavLink } from "react-router-dom";
-import useDelayInput from "./useDelayInput";
+import useDelayInput from "../../utils/useDelayInput";
 
 const SearchComp = () => {
   const [searchResult, setSearchResultData] = useState<categoryMeal[]>([]);
